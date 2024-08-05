@@ -117,12 +117,12 @@ macro_rules! maybe_extern_var {
 
 /// Returns whether this projection domain is a passive server.
 pub fn pd_is_passive() -> bool {
-    *maybe_extern_var!(microkit_passive: bool = false)
+    *maybe_extern_var!(rust_microkit_passive: bool = false)
 }
 
 /// Returns the name of this projection domain without converting to unicode.
 pub fn pd_name_bytes() -> &'static [u8] {
-    let all_bytes = maybe_extern_var!(microkit_name: [u8; 16] = [0; 16]);
+    let all_bytes = maybe_extern_var!(rust_microkit_name: [u8; 16] = [0; 16]);
     let n = all_bytes.iter().take_while(|b| **b != 0).count();
     &all_bytes[..n]
 }
